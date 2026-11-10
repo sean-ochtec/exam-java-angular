@@ -1,0 +1,22 @@
+{
+  "name": "Facility Notices exercise",
+  "image": "mcr.microsoft.com/devcontainers/java:21",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": { "version": "22" }
+  },
+  "forwardPorts": [4200, 8080],
+  "portsAttributes": {
+    "4200": { "label": "Frontend (Angular)", "onAutoForward": "openBrowser" },
+    "8080": { "label": "Backend (Spring Boot)", "onAutoForward": "silent" }
+  },
+  "postCreateCommand": "cd backend && ./mvnw -B -q -DskipTests package && cd ../frontend && npm ci",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "vmware.vscode-boot-dev-pack",
+        "angular.ng-template"
+      ]
+    }
+  }
+}
